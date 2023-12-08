@@ -1,0 +1,432 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "gardener",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "strategyIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "StrategyCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idGarden", "type": "uint256" },
+      { "internalType": "address", "name": "_userAddress", "type": "address" },
+      {
+        "components": [
+          { "internalType": "address[]", "name": "token", "type": "address[]" },
+          { "internalType": "uint256[]", "name": "amount", "type": "uint256[]" }
+        ],
+        "internalType": "struct TokenAmount[]",
+        "name": "composition",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "changeGardenComposition",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_gardenerId", "type": "uint256" },
+      { "internalType": "uint256", "name": "_gardenId", "type": "uint256" }
+    ],
+    "name": "changeGardener",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_gardenerId", "type": "uint256" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      { "internalType": "string", "name": "_gardenName", "type": "string" }
+    ],
+    "name": "createGarden",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_minAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "_maxAmount", "type": "uint256" },
+      { "internalType": "string", "name": "_strategyName", "type": "string" },
+      { "internalType": "address[]", "name": "_cryptos", "type": "address[]" },
+      { "internalType": "uint8[]", "name": "_percentages", "type": "uint8[]" }
+    ],
+    "name": "createStrategy",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "gardenerAddressToId",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "gardens",
+    "outputs": [
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "uint256", "name": "gardenerId", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "gardenerAddress",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "createdAt", "type": "uint256" },
+      {
+        "internalType": "string",
+        "name": "gardenerUsername",
+        "type": "string"
+      },
+      { "internalType": "string", "name": "gardenName", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllGardeners",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "string", "name": "username", "type": "string" },
+          {
+            "internalType": "address",
+            "name": "gardenerAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              { "internalType": "uint256", "name": "id", "type": "uint256" },
+              {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct GardenersGardenData[]",
+            "name": "gardens",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "minAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "strategyName",
+                "type": "string"
+              },
+              {
+                "internalType": "address[]",
+                "name": "cryptos",
+                "type": "address[]"
+              },
+              {
+                "internalType": "uint8[]",
+                "name": "percentages",
+                "type": "uint8[]"
+              }
+            ],
+            "internalType": "struct GardenerStrategy[]",
+            "name": "strategies",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Gardener[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_gardenerId", "type": "uint256" }
+    ],
+    "name": "getGardener",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "string", "name": "username", "type": "string" },
+          {
+            "internalType": "address",
+            "name": "gardenerAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              { "internalType": "uint256", "name": "id", "type": "uint256" },
+              {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct GardenersGardenData[]",
+            "name": "gardens",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "minAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "strategyName",
+                "type": "string"
+              },
+              {
+                "internalType": "address[]",
+                "name": "cryptos",
+                "type": "address[]"
+              },
+              {
+                "internalType": "uint8[]",
+                "name": "percentages",
+                "type": "uint8[]"
+              }
+            ],
+            "internalType": "struct GardenerStrategy[]",
+            "name": "strategies",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct Gardener",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_userAddress", "type": "address" }
+    ],
+    "name": "getGardensByAddress",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "address", "name": "owner", "type": "address" },
+          {
+            "internalType": "uint256",
+            "name": "gardenerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "gardenerAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address[]",
+                "name": "token",
+                "type": "address[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "amount",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenAmount[]",
+            "name": "composition",
+            "type": "tuple[]"
+          },
+          { "internalType": "uint256", "name": "createdAt", "type": "uint256" },
+          {
+            "internalType": "string",
+            "name": "gardenerUsername",
+            "type": "string"
+          },
+          { "internalType": "string", "name": "gardenName", "type": "string" }
+        ],
+        "internalType": "struct Garden[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getGardensForGardener",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          {
+            "internalType": "address",
+            "name": "userAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GardenersGardenData[]",
+        "name": "gardens",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getIdGardener",
+    "outputs": [{ "internalType": "uint256", "name": "id", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "isGardenerRegistered",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "name": "isStrategyCreated",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_username", "type": "string" },
+      {
+        "internalType": "address",
+        "name": "_addressGardener",
+        "type": "address"
+      }
+    ],
+    "name": "registerGardener",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_gardenerAddress",
+        "type": "address"
+      }
+    ],
+    "name": "viewAllStrategiesForGardener",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "minAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "maxAmount", "type": "uint256" },
+          {
+            "internalType": "string",
+            "name": "strategyName",
+            "type": "string"
+          },
+          {
+            "internalType": "address[]",
+            "name": "cryptos",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint8[]",
+            "name": "percentages",
+            "type": "uint8[]"
+          }
+        ],
+        "internalType": "struct GardenerStrategy[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["react-spinners"],
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "app/route.js",
+    "src/components/Coins/Tokens.tsx",
+    "src/pages/login.tsx",
+    "src/pages/index.tsx",
+    "src/components/Wallet.tsx",
+    "src/api/user.js",
+    "src/libs/modules/user.js",
+    "src/components/Navbar.tsx",
+    "src/components/action-button.tsx",
+    ".next/types/**/*.ts"
+, "src/components/Add-Garden.js", "src/pages/Terms/index.jsx", "src/pages/Buycrypto/index.js"  ],
+  "exclude": ["node_modules"]
+}
